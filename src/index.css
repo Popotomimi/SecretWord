@@ -73,6 +73,7 @@ footer {
   margin-top: 250px;
   padding: 5%;
   border-top: #2b3566 solid 2px;
+  background-color: #222;
 }
 
 footer svg {
@@ -90,5 +91,6 @@ nav {
   text-align: center;
   padding: 15px;
   border-bottom: solid #2b3566 2px;
-  margin-bottom: 50px;
+  margin-bottom: 150px;
+  background-color: #222;
 }

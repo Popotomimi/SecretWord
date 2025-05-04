@@ -7,23 +7,37 @@
 }
 
 .wordContainer {
-  margin: 1.5em;
-  padding: 1.5em;
-  border: 20px solid #4ed8c7;
+  width: 90%;
+  padding: 0.5em;
+  border: 10px solid #4ed8c7;
   display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 5px;
+  overflow: hidden;
+}
+
+.wordContainer > * {
+  flex: 1 1 auto;
+  min-width: calc(100% / var(--word-length));
+  max-width: 15%;
+  text-align: center;
 }
 
 .letter,
 .blankSquare {
-  font-size: 70px;
+  font-size: min(10vw, 50px);
+  width: min(10vw, 50px);
+  height: min(10vw, 50px);
   line-height: 1.5;
   border: 3px solid #000;
-  width: 100px;
-  height: 100px;
   text-transform: uppercase;
   background-color: #fff;
   color: #000;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .letterContainer p {
