@@ -20,7 +20,16 @@ const stages = [
   { id: 3, name: "end" },
 ];
 
-const guessesQty = 3;
+const hangmanParts = [
+  "head",
+  "body",
+  "left-arm",
+  "right-arm",
+  "left-leg",
+  "right-leg",
+];
+
+const guessesQty = 6;
 
 function App() {
   const [gameStage, setGameStage] = useState(stages[0].name);
@@ -34,6 +43,8 @@ function App() {
   const [wrongLetters, setWrongLetters] = useState([]);
   const [guesses, setGuesses] = useState(guessesQty);
   const [score, setScore] = useState(0);
+
+  const [wrongGuesses, setWrongGuesses] = useState(0);
 
   const pickWordAndCategory = useCallback(() => {
     const categories = Object.keys(words);
@@ -82,8 +93,10 @@ function App() {
         ...actualWrongLetters,
         normalizedLetter,
       ]);
-
       setGuesses((actualGuesses) => actualGuesses - 1);
+
+      // Adicionando erro ao contador
+      setWrongGuesses((prev) => prev + 1);
     }
   };
 
@@ -113,6 +126,8 @@ function App() {
     setScore(0);
     setGuesses(guessesQty);
 
+    setWrongGuesses(0);
+
     setGameStage(stages[0].name);
   };
 
@@ -122,16 +137,37 @@ function App() {
       <div className="App">
         {gameStage === "start" && <StartScreen startGame={startGame} />}
         {gameStage === "game" && (
-          <Game
-            verifyLetter={verifyLetter}
-            pickedWord={pickedWord}
-            pickedCategory={pickedCategory}
-            letters={letters}
-            guessedLetters={guessedLetters}
-            wrongLetters={wrongLetters}
-            guesses={guesses}
-            score={score}
-          />
+          <>
+            <div className="game-layout">
+              <div className="game-container">
+                <Game
+                  verifyLetter={verifyLetter}
+                  pickedWord={pickedWord}
+                  pickedCategory={pickedCategory}
+                  letters={letters}
+                  guessedLetters={guessedLetters}
+                  wrongLetters={wrongLetters}
+                  guesses={guesses}
+                  score={score}
+                />
+              </div>
+
+              <div className="hangman-container">
+                <div className="gallows">
+                  <div className="base"></div>
+                  <div className="vertical"></div>
+                  <div className="horizontal"></div>
+                  <div className="rope"></div>
+                </div>
+
+                <div className="hangman">
+                  {hangmanParts.slice(0, wrongGuesses).map((part, index) => (
+                    <div key={index} className={`hangman-part ${part}`}></div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </>
         )}
         {gameStage === "end" && <GameOver retry={retry} score={score} />}
       </div>

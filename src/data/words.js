@@ -5,4 +5,6 @@ export const wordsList = {
   computador: ["Mouse", "Teclado", "Monitor", "Gabinete"],
   animal: ["Gato", "Girafa", "Cachorro", "Cavalo"],
   alimento: ["Arroz", "Feijão", "Carne", "Leite", "Ovo"],
+  jogo: ["Pontos", "Dados", "Peças", "Tabuleiro"],
+  esporte: ["Futebol", "Skate", "Vôlei", "Basquete"],
 };

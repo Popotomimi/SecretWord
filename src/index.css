@@ -32,6 +32,146 @@ button:hover {
   border: solid 2px #0e76a8;
 }
 
+/* Nav */
+
+nav {
+  text-align: center;
+  padding: 15px;
+  border-bottom: solid #2b3566 2px;
+  margin-bottom: 150px;
+  background-color: #222;
+}
+
+/* Game */
+
+.game-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hangman-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 250px;
+  margin-top: 40px;
+}
+
+.hangman-container {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  margin: 20px auto;
+}
+
+.gallows {
+  position: relative;
+  width: 100px;
+  height: 180px;
+  margin: auto;
+}
+
+.base {
+  width: 100px;
+  height: 10px;
+  background-color: #0e76a8;
+  position: absolute;
+  bottom: 0;
+}
+
+.vertical {
+  width: 10px;
+  height: 160px;
+  background-color: #0e76a8;
+  position: absolute;
+  bottom: 10px;
+  left: 45px;
+}
+
+.horizontal {
+  width: 80px;
+  height: 10px;
+  background-color: #0e76a8;
+  position: absolute;
+  top: 0;
+  left: 45px;
+}
+
+.rope {
+  width: 2px;
+  height: 20px;
+  background-color: #0e76a8;
+  position: absolute;
+  top: 10px;
+  left: 100px;
+}
+
+.hangman {
+  position: absolute;
+  top: 30px;
+  left: 65px;
+}
+
+.hangman-part {
+  position: absolute;
+  background-color: #0e76a8;
+}
+
+.head {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  top: 30px;
+  left: 70px;
+}
+
+.body {
+  width: 10px;
+  height: 50px;
+  top: 50px;
+  left: 80px;
+}
+
+.left-arm {
+  width: 30px;
+  height: 5px;
+  top: 60px;
+  left: 50px;
+}
+
+.right-arm {
+  width: 30px;
+  height: 5px;
+  top: 60px;
+  left: 90px;
+}
+
+.left-leg {
+  width: 10px;
+  height: 30px;
+  top: 100px;
+  left: 70px;
+}
+
+.right-leg {
+  width: 10px;
+  height: 30px;
+  top: 100px;
+  left: 90px;
+}
+
 /* Footer */
 
 .github {
@@ -83,14 +223,4 @@ footer svg {
 footer p {
   margin: 5px;
   font-weight: bold;
-}
-
-/* Nav */
-
-nav {
-  text-align: center;
-  padding: 15px;
-  border-bottom: solid #2b3566 2px;
-  margin-bottom: 150px;
-  background-color: #222;
 }
